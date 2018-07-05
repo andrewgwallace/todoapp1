@@ -12,24 +12,24 @@ class App extends Component {
 
 
   // AXIOS METHOD
-  componentWillMount = () => {
-    axios.get('http://localhost:3004/todos')
-      .then(response => {
-        let tasks = response.data;
-        this.setState({ tasks: tasks });
-      })
-      .catch(error => {
-        console.error(error);
-      })
-  }
+  // componentWillMount = () => {
+  //   axios.get('http://localhost:3004/todos')
+  //     .then(response => {
+  //       let tasks = response.data;
+  //       this.setState({ tasks: tasks });
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     })
+  // }
 
   //ASYNC/AWAIT METHOD
-  // componentWillMount = async () => {
-  //   const response = await fetch("http://localhost:3000/todos");
-  //   const tasks = await response.json();
-  //   this.setState({ tasks: tasks });
-  //   console.log(this.state.tasks)
-  // };
+  componentWillMount = async () => {
+    const response = await fetch("http://localhost:3004/todos");
+    const tasks = await response.json();
+    this.setState({ tasks: tasks });
+    console.log(this.state.tasks)
+  };
 
   updateTasks = tasks => {
     this.setState({
